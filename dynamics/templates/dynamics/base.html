@@ -64,6 +64,9 @@
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- forms CSS
+        ============================================= -->
+    <link rel="stylesheet" href="{% static 'dynamics/css/forms.css' %}">
     <!-- modernizr JS
 		============================================ -->
     <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
@@ -180,27 +183,9 @@
         </div>
     </div>
 
-    <!-- Alert area start-->
-    <div class="sales-statistic-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                    <div class="sales-statistic-inner notika-shadow mg-tb-30">
-                        <div class="curved-inner-pro">
-                            <div class="curved-ctn">
-                                <h2>Our Ambition:</h2>
-                                    <p>To use our funds, street smarts and intellects to invest shrewdly in income and wealth generating opportunities; be it in the money markets or product and services industries. With the long term goal of building networks powerful enough to sustain the generated wealth and businesses established.</p>
-                                    <p>
-                                    {% block body %}
-                                    {% endblock %}
-                                    </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% block body %}
+    {% endblock %}
+    
         
     <!-- Alert area End-->
     <!-- Start Footer area-->
