@@ -122,7 +122,8 @@
                     <div class="tab-content custom-menu-content">
                         <div id="Home" class="tab-pane in notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="index.html">Dashboard</a></li>
+                                <li><a href="{% url 'dynamics:index' %}">Homepage</a></li>
+                                <li><a href="{% url 'dynamics:register' %}">Sign Up</a></li>
                                 <li><a href="analytics.html">Analytics</a></li>
                             </ul>
                         </div>

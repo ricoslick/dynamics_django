@@ -8,6 +8,22 @@
 	<div class="col-sm-8 main-section">
 		<h3>Sign Up:</h3><br><br>
 		<div class="modal-content">
+			<!-- form error handling -->
+			{% if form.errors in form %}
+				{% for field in form %}
+					{% for error in field.errors %}
+						<div class="alert alert-danger">
+							<strong>{{ error|escape }}</strong>
+						</div>
+					{% endfor %}
+				{% endfor %}
+				{% for error in form.non_field_errors %}
+					<div class="alert alert-danger">
+						<strong>{{ error|escape }}</strong>
+					</div>
+				{% endfor %}
+			{% endif %}
+			<!-- end of error-handling -->
 			<div class="col 12 user-img">
 				<!-- Form avatar -->
 				<img src="{% static 'dynamics/img/beard_face.png' %}" alt="" title= "Form avatar">

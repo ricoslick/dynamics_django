@@ -1,13 +1,14 @@
 from django.db import models
+# from django.forms import ModelForm
 from django.template.defaultfilters import slugify
 
 # Create your models here.
 class User(models.Model):
 	username = models.CharField(max_length=50, unique=True)
-	email = models.CharField(max_length=100)
+	email = models.CharField(max_length=100, unique=True)
 	position = models.CharField(max_length=30)
-	password = models.CharField(max_length=50)
-	password_confirm = models.CharField(max_length=50)
+	password = models.CharField(max_length=500)
+	password_confirm = models.CharField(max_length=500)
 	url= models.SlugField(max_length=500, unique=True, blank=True)
 
 	def __str__(self):
@@ -42,6 +43,7 @@ class Investments(models.Model):
 	def save(self, *args, **kwargs):
 		self.url=slugify(self.username)
 		super(User, self).save(*args, **kwargs)
+
 
 
 		
