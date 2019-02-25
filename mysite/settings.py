@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
+from .secret_settings import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -85,16 +86,7 @@ DATABASES = {
 }
 """
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'projectdb',
-        'USER': 'postgres',
-        'PASSWORD': 'Badui$M@1997',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
@@ -147,10 +139,4 @@ LOGIN_REDIRECT_URL = '/dynamics/'
 LOGOUT_REDIRECT_URL = '/dynamics/'
 AUTH_USER_MODEL = 'dynamics.CustomUser' # new
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# Email_Backend parameters
-DEFAULT_FROM_EMAIL = 'bantuefwe@riseup.net'
-EMAIL_HOST = 'mail.riseup.net'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'bantuefwe'
-EMAIL_HOST_PASSWORD = '$Wesakula*1588#'
-EMAIL_USE_TLS = True
+
