@@ -1,0 +1,27 @@
+{% extends 'dynamics/base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block body %}
+<!-- Alert area start-->
+    <div class="sales-statistic-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
+                    <div class="sales-statistic-inner notika-shadow mg-tb-30">
+                        <div class="curved-inner-pro">
+                            <div class="curved-ctn">
+                                <h2>Registration was successful:</h2>
+                                <div class="alert alert-success" role="alert">
+                                    <p>Thanks for registering.</p>
+                                    <br><br>
+                                    <p>Please proceed to login:<a href="{% url 'dynamics:login' %}"><strong>Login</strong></a></p>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+{% endblock %}

@@ -4,6 +4,74 @@
 {% bootstrap_javascript jquery='full' %}
 {% block body %}
 <!-- Alert area start-->
+{% if user.is_authenticated %}
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-ctn">
+                                    <h2>Welcome:</h2>
+                                    <p>Hi <strong>{{ user.username }}</strong>, <span class="bread-ntd">login was successful.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-ctn">
+                                    <h2>Logged Out?</h2>
+                                    <p><span class="bread-ntd">Please login again: <a href="{% url 'login' %}"><strong>Login here</strong></a></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+    <!-- Breadcomb area End-->
+    
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="breadcomb-icon">
+                                        <i class="fa fa-plus-square"></i>
+                                    </div>
+                                    <div class="breadcomb-ctn">
+                                        <h2>Dynamics Investment Group</h2>
+                                        <p>Dynamics Investment Group is an investment group formed in 2013 by 6 enterprising college goers who studied together at the Kenya Methodsit University.</p><br>
+                                        <p>It initially consisted of 13 members but was reduced to 10 after reformation post a brief hiatus between 2014 and 2018.</p>
+                                        <br>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="sales-statistic-area">
         <div class="container">
             <div class="row">

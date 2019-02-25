@@ -51,3 +51,38 @@ button {
 	margin-right: 7px;
 }
 
+.form-error {
+	color: #fff!important;
+}
+
+.errorlist .nonfield, .errorlist {
+	color: #ffbf00!important;
+	font-weight: bold;
+	font-style: italic;
+}
+
+label[for="id_username"] {
+	display:none;
+}
+
+label[for="id_password"] {
+	display:none;
+}
+
+label[for="id_new_password1"] {
+	color: white;
+	font-weight: bold;
+}
+
+label[for="id_new_password2"] {
+	color: white;
+	font-weight: bold;
+}
+
+ul {
+	display: none;
+}
+
+ol li .form-error{
+	color: #ffbf00!important;
+}

@@ -4,20 +4,51 @@
 {% bootstrap_javascript jquery='full' %}
 {% load static %}
 {% block body %}
-<div class="modal-dialog text-center">
-	<div class="col-sm-8 main-section">
-		<h3>Sign Up:</h3><br><br>
-		<div class="modal-content">
-			<div class="col 12 user-img">
-				<!-- Form avatar -->
-				<img src="{% static 'dynamics/img/beard_face.png' %}" alt="" title= "Form avatar">
-			</div>
-			<form action="" class="col-12" method="post">
-				{% csrf_token %}
-				{{ form }}
-				<button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i>Register</button>
-			</form>
-		</div><!-- End of modal content -->
-	</div>
-</div>
+<div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-ctn">
+                                    <h2>Welcome:</h2>
+                                    <p><strong>{{ user.username }}</strong> , <span class="bread-ntd"> welcome to the Dyamics Dashboard.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcomb area End-->
+    
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="breadcomb-icon">
+                                        <i class="fa fa-plus-square"></i>
+                                    </div>
+                                    <div class="breadcomb-ctn">
+                                        <h2>Dynamics Investment Group</h2>
+                                        <p>Dynamics Investment Group is an investment group formed in 2013 by 6 enterprising college goers who studied together at the Kenya Methodsit University.</p><br>
+                                        <p>It initially consisted of 13 members but was reduced to 10 after reformation post a brief hiatus between 2014 and 2018.</p>
+                                        <br>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

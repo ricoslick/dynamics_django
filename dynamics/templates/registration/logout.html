@@ -1,0 +1,25 @@
+{% extends 'dynamics/base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load static %}
+{% block title %}Signed Out{% endblock %}
+{% block body %}
+<div class="modal-dialog text-center">
+	<div class="col-sm-8 main-section">
+		<h3>Logout Successful:</h3>
+		<a href="{% url 'login' %}"><strong>Login Again?</strong></a>
+		<br><br>
+		<hr>
+		<!-- message handling -->
+			{% if messages %}
+				{% for message in messages %}
+				<div class="alert alert-info">
+					<p><strong>{{ message }}</strong></p>
+				</div>
+				{% endfor %}
+			{% endif %}
+			<!-- end of message-handling -->
+		<a href="{% url 'login' %}"><strong>Login Again?</strong></a>
+	</div>
+</div>

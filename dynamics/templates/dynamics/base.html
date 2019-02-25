@@ -70,6 +70,77 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <!-- End Footer area-->
+    <!-- jquery
+        ============================================ -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="{% static 'js/jquery-price-slider.js' %}"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="{% static 'js/meanmenu/jquery.meanmenu.js' %}"></script>
+    <!-- counterup JS
+        ============================================ -->
+    <script src="{% static 'js/counterup/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/counterup/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/counterup/counterup-active.js' %}"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="{% static 'js/scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <!-- sparkline JS
+        ============================================ -->
+    <script src="{% static 'js/sparkline/jquery.sparkline.min.js' %}"></script>
+    <script src="{% static 'js/sparkline/sparkline-active.js' %}"></script>
+    <!-- flot JS
+        ============================================ -->
+    <script src="{% static 'js/flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'js/flot/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'js/flot/flot-active.js' %}"></script>
+    <!-- knob JS
+        ============================================ -->
+    <script src="{% static 'js/knob/jquery.knob.js' %}"></script>
+    <script src="{% static 'js/knob/jquery.appear.js' %}"></script>
+    <script src="{% static 'js/knob/knob-active.js' %}"></script>
+    <!--  Chat JS
+        ============================================ -->
+    <script src="{% static 'js/chat/jquery.chat.js' %}"></script>
+    <!--  todo JS
+        ============================================ -->
+    <script src="{% static 'js/todo/jquery.todo.js' %}"></script>
+    <!--  wave JS
+        ============================================ -->
+    <script src="{% static 'js/wave/waves.min.js' %}"></script>
+    <script src="{% static 'js/wave/wave-active.js' %}"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- tawk chat JS
+        ============================================ -->
+    <script src="{% static 'js/tawk-chat.js' %}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23581568-13');
+    </script>
 </head>
 
 <body>
@@ -105,9 +176,62 @@
         </div>
 
     </div>
-    
+    {% if user.is_authenticated %}
     <!-- End Header Top Area -->
     <!-- Mobile Menu start -->
+    <div class="main-menu-area mg-tb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
+                        <li><a data-toggle="tab" href="#Home"><i class="fas fa-home"></i>Home</a></li>
+                        <li><a data-toggle="tab" href="#About"><i class="fas fa-book-open"></i>About Us</a></li>
+                        <li><a data-toggle="tab" href="#Contacts"><i class="fas fa-user-circle"></i>Contacts</a></li>
+                        <li><a data-toggle="tab" href="#Docs"><i class="fas fa-folder"></i>Documents</a></li>
+                        <li><a data-toggle="tab" href="#Records"><i class="fas fa-book"></i>Records</a></li>
+                        <li><a data-toggle="tab" href="#SignOut"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
+                    </ul>
+                    <div class="tab-content custom-menu-content">
+                        <div id="Home" class="tab-pane in notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="{% url 'dynamics:index' %}">Homepage</a></li>
+                                <li><a href="{% url 'dynamics:register' %}">Sign Up</a></li>
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </div>
+                        <div id="About" class="tab-pane in notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="members.html">Members</a></li>
+                                <li><a href="members.html">Officials</a></li>
+                            </ul>
+                        </div>
+                        <div id="Docs" class="tab-pane in notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="download.html">Downloads</a></li>
+                                <li><a href="upload.html">Upload</a></li>
+                                <li><a href="view.html">View Summaries</a></li>
+                            </ul>
+                        </div>
+                        <div id="Records" class="tab-pane in notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="about.html">Contributions</a></li>
+                                <li><a href="targets.html">Targets</a></li>
+                                <li><a href="members.html">Members</a></li>
+                            </ul>
+                        </div>
+                        <div id="SignOut" class="tab-pane in notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                                <li><a href="{% url 'password_reset' %}">Reset Password</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
     <div class="main-menu-area mg-tb-40">
         <div class="container">
             <div class="row">
@@ -124,7 +248,7 @@
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="{% url 'dynamics:index' %}">Homepage</a></li>
                                 <li><a href="{% url 'dynamics:register' %}">Sign Up</a></li>
-                                <li><a href="analytics.html">Analytics</a></li>
+                                <li><a href="{% url 'login' %}">Login</a></li>
                             </ul>
                         </div>
                         <div id="About" class="tab-pane in notika-tab-menu-bg animated flipInX">
@@ -153,37 +277,8 @@
             </div>
         </div>
     </div>
-
-    
-	<!-- Breadcomb area End-->
-    
-    <div class="breadcomb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="breadcomb-list">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="breadcomb-wp">
-                                    <div class="breadcomb-icon">
-                                        <i class="fa fa-plus-square"></i>
-                                    </div>
-                                    <div class="breadcomb-ctn">
-                                        <h2>Dynamics Investment Group</h2>
-                                        <p>Dynamics Investment Group is an investment group formed in 2013 by 6 enterprising college goers who studied together at the Kenya Methodsit University.</p><br>
-                                        <p>It initially consisted of 13 members but was reduced to 10 after reformation post a brief hiatus between 2014 and 2018.</p>
-                                        <br>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    {% endif %}
+	
     {% block body %}
     {% endblock %}
     
@@ -201,80 +296,7 @@
             </div>
         </div>
     </div>
-    <!-- End Footer area-->
-    <!-- jquery
-		============================================ -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="{% static 'js/wow.min.js' %}"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="{% static 'js/jquery-price-slider.js' %}"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="{% static 'js/meanmenu/jquery.meanmenu.js' %}"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="{% static 'js/counterup/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'js/counterup/waypoints.min.js' %}"></script>
-    <script src="{% static 'js/counterup/counterup-active.js' %}"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="{% static 'js/scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="{% static 'js/sparkline/jquery.sparkline.min.js' %}"></script>
-    <script src="{% static 'js/sparkline/sparkline-active.js' %}"></script>
-    <!-- flot JS
-		============================================ -->
-    <script src="{% static 'js/flot/jquery.flot.js' %}"></script>
-    <script src="{% static 'js/flot/jquery.flot.resize.js' %}"></script>
-    <script src="{% static 'js/flot/flot-active.js' %}"></script>
-    <!-- knob JS
-		============================================ -->
-    <script src="{% static 'js/knob/jquery.knob.js' %}"></script>
-    <script src="{% static 'js/knob/jquery.appear.js' %}"></script>
-    <script src="{% static 'js/knob/knob-active.js' %}"></script>
-    <!--  Chat JS
-		============================================ -->
-    <script src="{% static 'js/chat/jquery.chat.js' %}"></script>
-    <!--  todo JS
-		============================================ -->
-    <script src="{% static 'js/todo/jquery.todo.js' %}"></script>
-	<!--  wave JS
-		============================================ -->
-    <script src="{% static 'js/wave/waves.min.js' %}"></script>
-    <script src="{% static 'js/wave/wave-active.js' %}"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="{% static 'js/plugins.js' %}"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="{% static 'js/main.js' %}"></script>
-	<!-- tawk chat JS
-		============================================ -->
-    <script src="{% static 'js/tawk-chat.js' %}"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-23581568-13');
-    </script>
-    
 </body>
-
 </html>
 
   

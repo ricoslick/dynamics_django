@@ -18,6 +18,7 @@ from django.urls import include, path
 
 urlpatterns = [
 	path('dynamics/', include('dynamics.urls')),
+	path('dynamics/', include('django.contrib.auth.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
 ]

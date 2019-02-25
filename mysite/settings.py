@@ -57,7 +57,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,3 +143,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = '/dynamics/'
+LOGOUT_REDIRECT_URL = '/dynamics/'
+AUTH_USER_MODEL = 'dynamics.CustomUser' # new
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# Email_Backend parameters
+DEFAULT_FROM_EMAIL = 'bantuefwe@riseup.net'
+EMAIL_HOST = 'mail.riseup.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bantuefwe'
+EMAIL_HOST_PASSWORD = '$Wesakula*1588#'
+EMAIL_USE_TLS = True
