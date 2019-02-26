@@ -79,10 +79,15 @@ label[for="id_new_password2"] {
 	font-weight: bold;
 }
 
-ul {
-	display: none;
-}
 
 ol li .form-error{
 	color: #ffbf00!important;
+}
+
+.passlink a {
+	color: #fff!important;
+}
+
+.passlink a:hover, a:focus {
+	color: #00c292!important;
 }
