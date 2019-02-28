@@ -23,7 +23,7 @@
         </div>
     </div>
     <!-- Breadcomb area End-->
-    
+
     <div class="breadcomb-area">
         <div class="container">
             <div class="row">
@@ -50,5 +50,53 @@
             </div>
         </div>
     </div>
+    <!-- Contributions Form-->
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-example-wrap mg-t-30">
+                        <div class="cmp-tb-hd cmp-int-hd">
+                            <h2>Contributions Form</h2>
+                            <p> Please submit your monthly contribution below:</p>
+                        </div>
+                        <form action="" class="form-inline" method="post">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="form-example-int form-example-st">
+                                        <div class="form-group mb-2">
+                                        {% csrf_token %}
+                                            <div class="nk-int-st">
+                                                {{ form.amount }}
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="form-example-int form-example-st">
+                                        <div class="form-group mx-sm-3 mb-2">
+                                        {% csrf_token %}
+                                            <div class="nk-int-st">
+                                                {{ form.Contribution_date }}
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
+                                <div class="form-example-int">
+                                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i>Submit</button>
+                                </div>
+                            </div>
+                           </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Contributions Form -->
+
 
 {% endblock %}

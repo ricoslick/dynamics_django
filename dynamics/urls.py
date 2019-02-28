@@ -10,6 +10,7 @@ urlpatterns = [
 	path('', views.IndexView.as_view(), name='index'),
 	# ex: /dynamics/dashboard
 	path('users/<slug:slug>/', views.DashView.as_view(), name='dashboard'),
+	path('contribution/', views.contribution, name='contribution'),
 	# ex: /dynamics/register
 	path('register/', views.register, name='register'),
 	# ex: /dynamics/register/thanks

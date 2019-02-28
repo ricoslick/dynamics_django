@@ -1,9 +1,10 @@
 from django.db import models
 from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, PasswordResetForm, SetPasswordForm
 from django.forms.widgets import PasswordInput, TextInput
 # from django.forms import ModelForm
-from .models import CustomUser
+from .models import CustomUser, Contribution
 # Override AuthenticationForm to customize login
 class CustomAuthForm(AuthenticationForm):
 	# customizing fields done here
@@ -101,6 +102,19 @@ class CustomSetPassForm(SetPasswordForm):
 class CustomPassResetForm(PasswordResetForm):
 	email = forms.EmailField(max_length=254, required=True, widget=forms.TextInput(attrs={'title': 'Enter email address here', 'id': 'email', 'placeholder': 'Enter Email', 'class': 'form-group'}), label='')
 
+# Model Form for Contribution model
+class ContributionForm(ModelForm):
+	class Meta:
+		model = Contribution
+		fields = ['amount', 'Contribution_date']
+		widgets = {
+			'amount': forms.NumberInput(attrs={'title': 'Amount Given', 'name':'amount', 'placeholder': 'Enter Contribution', 'class': 'form-group'}),
+			'Contribution_date': forms.DateInput(attrs={'title': 'Date of Contribution', 'name': 'contribution_date', 'placeholder': 'Select Date', 'class':'form-group', 'data-provide': 'datepicker', 'id': 'contribution_date'}),
+		}
+		labels = {
+			'amount': '',
+			'Contribution_date': '',
+		}
 
 
 	

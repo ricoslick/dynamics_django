@@ -67,6 +67,15 @@
     <!-- forms CSS
         ============================================= -->
     <link rel="stylesheet" href="{% static 'dynamics/css/forms.css' %}">
+    <!-- jQuery-ui CSS
+        ============================================= -->
+    <link rel=”stylesheet” href="{% static 'dynamics/css/jquery-ui/jquery-ui.min.css' %}">
+    <link rel=”stylesheet” href="{% static 'dynamics/css/jquery-ui/jquery-ui.theme.min.css' %}">
+    <link rel=”stylesheet” href="{% static 'dynamics/css/jquery-ui/jquery-ui.structure.min.css' %}">
+    <!-- datepicker styling CSS
+        =========================================== -->
+    <link rel="stylesheet" href="{% static 'dynamics/css/datepicker.css' %}">
+    <!-- link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" -->
     <!-- modernizr JS
 		============================================ -->
     <script src="{% static 'dynamics/js/vendor/modernizr-2.8.3.min.js' %}"></script>
@@ -291,12 +300,20 @@
         ============================================ -->
     <script src="{% static 'dynamics/js/tawk-chat.js' %}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script async src="{% static 'dynamics/js/jquery-ui/jquery-ui.min.js' %}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'UA-23581568-13');
+    </script>
+    <script>
+    $( function() {
+    $('#contribution_date').datepicker({
+        inline: true,
+    });
+    } );  
     </script>
 </body>
 </html>

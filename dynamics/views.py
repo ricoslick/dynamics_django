@@ -5,9 +5,10 @@ from django.views import generic
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as customlogin
+from django.contrib.auth.decorators import login_required
 
 from .models import CustomUser
-from .forms import RegisterationForm, CustomAuthForm
+from .forms import RegisterationForm, CustomAuthForm, ContributionForm
 # Create your views here.
 class IndexView(generic.ListView):
 	template_name = 'dynamics/index.html'
@@ -73,9 +74,18 @@ def login(request):
 	return render(request, 'dynamics/index.html', {
 		'form':form
 		})
+# Contributions view: user redirected to login page if not authenticated by logging in
+@login_required(login_url='login')
+def contribution(request):
+	if request.method == 'POST':
+		form = ContributionForm(request.POST)
+		if form.is_valid():
+			contribution = form.save()
+			contribution.save()
+			messages.success(request, 'Contribution for {{user.username}} added') 
+			success_url = reverse_lazy('contribution')
+			return redirect(success_url)
+	else:
+		form = ContributionForm()
 
-# Custom Error Views
-def customhandler404(request, exception, template_name='404.html'):
-	response = render(request, '404.html')
-	response.status_code = 404
-	return response
+	return render(request, 'dynamics/dashboard.html', {'form': form})

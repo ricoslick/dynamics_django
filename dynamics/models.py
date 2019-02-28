@@ -19,6 +19,17 @@ class CustomUser(AbstractUser):
 		super(CustomUser, self).save(*args, **kwargs)
 
 
+# Create model Contributions which has a one-to-many relationship with model User
+# Foreign key member
+class Contribution(models.Model):
+	member = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+	amount = models.DecimalField(max_digits=8, decimal_places=2)
+	Contribution_date = models.DateField()
+
+	def __str__(self):
+		return self.amount
+
+
 
 
 		
