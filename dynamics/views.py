@@ -74,7 +74,7 @@ def login(request):
 	return render(request, 'dynamics/index.html', {
 		'form':form
 		})
-# Contributions view: user redirected to login page if not authenticated by logging in
+# Contributions view: user redirected to login page if attempting to access page without signing in
 @login_required(login_url='login')
 def contribution(request):
 	if request.method == 'POST':
