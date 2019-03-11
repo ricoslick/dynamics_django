@@ -20,7 +20,7 @@ class CustomUser(AbstractUser):
 		super(CustomUser, self).save(*args, **kwargs)
 
 
-# Create model Contributions which has a one-to-many relationship with model User
+# Create model Contributions which has a many-to-one relationship with model User
 # Foreign key member
 class Contribution(models.Model):
 	member = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
