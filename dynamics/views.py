@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views import generic
-from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as customlogin
 from django.contrib.auth.decorators import login_required
@@ -34,8 +33,6 @@ def register(request):
 		form = RegisterationForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			# user.password = make_password(user.password)
-			# user.password_confirm = make_password(user.password_confirm)
 			user.save()
 			messages.success(request, 'User account created successfully')
 			success_url = reverse_lazy('login')
