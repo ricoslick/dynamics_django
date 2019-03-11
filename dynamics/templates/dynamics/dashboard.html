@@ -60,6 +60,23 @@
                             <h2>Contributions Form</h2>
                             <p> Please submit your monthly contribution below:</p>
                         </div>
+                        <!-- message handling -->
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-info">
+                                <p><strong>{{ message }}</strong></p>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                        <!-- end of message-handling -->
+                        <!-- Error-Handling -->
+                        {% if form_contrib.errors %}
+                            <div class="alert alert-warning">
+                                <p><strong>{{ form_contrib.non_field_errors }}</strong></p>
+                            </div>
+                        {% endif %}
+                        
+                        <!-- End of error-Handling -->
                         <form action="" class="form-inline" method="post">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -67,7 +84,9 @@
                                         <div class="form-group mb-2">
                                         {% csrf_token %}
                                             <div class="nk-int-st">
-                                                {{ form.amount }}
+                                                {{ form_contrib.amount.errors }}
+                                                {{ form_contrib.amount }}
+                                                
                                             </div>
                                         </div>   
                                     </div>
@@ -77,9 +96,23 @@
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="form-example-int form-example-st">
                                         <div class="form-group mx-sm-3 mb-2">
-                                        {% csrf_token %}
                                             <div class="nk-int-st">
-                                                {{ form.Contribution_date }}
+                                                {{ form_contrib.Contribution_date.errors }}
+                                                {{ form_contrib.Contribution_date }}
+                                                
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="form-example-int form-example-st">
+                                        <div class="form-group mx-sm-3 mb-2">
+                                            <div class="nk-int-st">
+                                                {{ form_contrib.member.errors }}
+                                                {{ form_contrib.member }}
+                                                
                                             </div>
                                         </div>   
                                     </div>

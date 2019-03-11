@@ -3,6 +3,8 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, PasswordResetForm, SetPasswordForm
 from django.forms.widgets import PasswordInput, TextInput
+from datetime import date
+
 # from django.forms import ModelForm
 from .models import CustomUser, Contribution
 # Override AuthenticationForm to customize login
@@ -103,18 +105,32 @@ class CustomPassResetForm(PasswordResetForm):
 	email = forms.EmailField(max_length=254, required=True, widget=forms.TextInput(attrs={'title': 'Enter email address here', 'id': 'email', 'placeholder': 'Enter Email', 'class': 'form-group'}), label='')
 
 # Model Form for Contribution model
-class ContributionForm(ModelForm):
+class ContributionForm(forms.ModelForm):
+	member = forms.ModelChoiceField(queryset=CustomUser.objects.all(), widget=forms.Select(attrs={'class':'custom-select'}))
 	class Meta:
 		model = Contribution
-		fields = ['amount', 'Contribution_date']
+		fields = ['amount', 'Contribution_date', 'member']
 		widgets = {
-			'amount': forms.NumberInput(attrs={'title': 'Amount Given', 'name':'amount', 'placeholder': 'Enter Contribution', 'class': 'form-group'}),
-			'Contribution_date': forms.DateInput(attrs={'title': 'Date of Contribution', 'name': 'contribution_date', 'placeholder': 'Select Date', 'class':'form-group', 'data-provide': 'datepicker', 'id': 'contribution_date'}),
-		}
+			'amount': forms.NumberInput(attrs={'title': 'Enter Amount Given', 'name':'amount', 'placeholder': 'Enter Contribution', 'class': 'form-group'}),
+			'Contribution_date': forms.DateInput(attrs={'title': 'Pick Date of Contribution', 'name': 'contribution_date', 'placeholder': 'Select Date', 'class':'form-group', 'data-provide': 'datepicker', 'id': 'contribution_date'}),
+		}	
 		labels = {
 			'amount': '',
 			'Contribution_date': '',
+			'member': ''
 		}
+
+	# validate Contribution_date and choicefield option:
+	def clean(self):
+		 	cleaned_data = super(ContributionForm, self).clean()
+		 	member = cleaned_data.get('member')
+		 	Contribution_date = cleaned_data.get('Contribution_date')
+
+		 	if Contribution_date > date.today():
+		 		raise forms.ValidationError("Invalid date! Contribution cannot be added in the future")
+
+
+		 	return cleaned_data	
 
 
 	

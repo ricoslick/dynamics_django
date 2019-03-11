@@ -2,26 +2,105 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
+{% load static %}
 {% block body %}
-<!-- Alert area start-->
-    <div class="sales-statistic-area">
+    <!-- Breadcomb area End-->
+
+    <div class="breadcomb-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                    <div class="sales-statistic-inner notika-shadow mg-tb-30">
-                        <div class="curved-inner-pro">
-                            <div class="curved-ctn">
-                                <h2>Registration was successful:</h2>
-                                <div class="alert alert-success" role="alert">
-                                    <p>Thanks for registering.</p>
-                                    <br><br>
-                                    <p>Please proceed to login:<a href="{% url 'dynamics:login' %}"><strong>Login</strong></a></p>
-                                </div>    
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="breadcomb-icon">
+                                        <i class="fa fa-plus-square"></i>
+                                    </div>
+                                    <div class="breadcomb-ctn">
+                                        <h2>Contributions Schedule</h2>
+                                        <p>Contributions are made before the 10th of every month. They can be made in weekly installments of <i>ksh.750</i>, or a single monthly contribution of <i>ksh.3000</i> </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Contributions Form-->
+<!-- Alert area start-->
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    
+                                <!-- message handling -->
+                            {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-info">
+                                    <p><strong>{{ message }}</strong></p>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        <!-- end of message-handling -->
+                                <h2>Thanks for your contribution {{ user.username }}:</h2>
+                                <p><strong>Contributions List:</strong></p>
+                                <div class="span2">
+                                    <table class="table table-striped table-borderes">
+                                        <thead class="thead-primary">
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Date Contributed</th>
+                                                <th scope="col">Post</th>
+                                            </tr>
+                                        </thead>
+                                        {% for contribution in contribution_list %}
+                                        <tbody class="">
+                                            <tr>
+                                                <td scope="row">
+                                                {{ contribution.member.username }}</td>
+                                                <td scope="row">
+                                                {{ contribution.amount }}</td>
+                                                <td scope="row">
+                                                {{ contribution.Contribution_date }}</td>
+                                                <td scope="row">
+                                                {{ contribution.member.post }}</td>
+                                            </tr>
+                                        </tbody>
+                                        {% endfor %}
+                                    </table>
+                                    
+                                    
+                            
+    
+                    </div>
+                </div>
+            </div>
+        </div>
     </div> 
+
+    <!-- Breadcomb area End-->
+
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="breadcomb-ctn">
+                                        <p><strong>Add another contribution?</strong><a href="{% url 'dynamics:contribution' %}"> Click Here </a> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

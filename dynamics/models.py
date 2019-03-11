@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 # from django.forms import ModelForm
 from django.template.defaultfilters import slugify
 
@@ -22,12 +23,11 @@ class CustomUser(AbstractUser):
 # Create model Contributions which has a one-to-many relationship with model User
 # Foreign key member
 class Contribution(models.Model):
-	member = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+	member = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	amount = models.DecimalField(max_digits=8, decimal_places=2)
 	Contribution_date = models.DateField()
 
-	def __str__(self):
-		return self.amount
+	
 
 
 

@@ -6,8 +6,9 @@ from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as customlogin
 from django.contrib.auth.decorators import login_required
+from django.db.models import Prefetch 
 
-from .models import CustomUser
+from .models import CustomUser, Contribution
 from .forms import RegisterationForm, CustomAuthForm, ContributionForm
 # Create your views here.
 class IndexView(generic.ListView):
@@ -52,10 +53,13 @@ def register(request):
 		'form':form
 		})
 
-def thanks(request, id):
-	registered = get_object_or_404(CustomUser, pk=id)
+@login_required(login_url='login')
+def thanks(request):
+	contribution_list = Contribution.objects.all().select_related().order_by('-Contribution_date')
+	template_name = 'dynamics/thanks.html'
+	return render(request, template_name, {'contribution_list': contribution_list})
 
-	return render(request, 'dynamics/thanks.html', {'registered':registered})
+	
 
 def login(request):
 	if request.method == 'POST':
@@ -78,14 +82,18 @@ def login(request):
 @login_required(login_url='login')
 def contribution(request):
 	if request.method == 'POST':
-		form = ContributionForm(request.POST)
-		if form.is_valid():
-			contribution = form.save()
+		# member = CustomUser.objects.get(pk=request.user.id)
+		form_contrib = ContributionForm(request.POST)
+		if form_contrib.is_valid():
+			contribution = form_contrib.save()
 			contribution.save()
-			messages.success(request, 'Contribution for {{user.username}} added') 
-			success_url = reverse_lazy('contribution')
+			messages.success(request, 'Contribution added') 
+			success_url = reverse_lazy('dynamics:thanks')
 			return redirect(success_url)
+		else:
+			messages.error(request, 'Contribution not added')
 	else:
-		form = ContributionForm()
+		form_contrib = ContributionForm()
 
-	return render(request, 'dynamics/dashboard.html', {'form': form})
+	return render(request, 'dynamics/dashboard.html', {'form_contrib': form_contrib})
+	

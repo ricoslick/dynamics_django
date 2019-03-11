@@ -10,11 +10,12 @@ urlpatterns = [
 	path('', views.IndexView.as_view(), name='index'),
 	# ex: /dynamics/dashboard
 	path('users/<slug:slug>/', views.DashView.as_view(), name='dashboard'),
+	# ex: /dynamics/contribution
 	path('contribution/', views.contribution, name='contribution'),
 	# ex: /dynamics/register
 	path('register/', views.register, name='register'),
 	# ex: /dynamics/register/thanks
-	path('register/thanks/', views.thanks, name='thanks'),
+	path('contribution/thanks/', views.thanks, name='thanks'),
 	# ex: /dynamics/login
 	path('login/', auth_views.LoginView.as_view(authentication_form=CustomAuthForm), name='login'),
 	# ex: /dynamics/password_reset
