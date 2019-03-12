@@ -106,7 +106,7 @@ class CustomPassResetForm(PasswordResetForm):
 
 # Model Form for Contribution model
 class ContributionForm(forms.ModelForm):
-	member = forms.ModelChoiceField(queryset=CustomUser.objects.all(), widget=forms.Select(attrs={'class':'custom-select'}))
+	member = forms.ModelChoiceField(queryset=CustomUser.objects.all(), empty_label=("--Select Current User--"), widget=forms.Select(attrs={'class':'custom-select'}))
 	class Meta:
 		model = Contribution
 		fields = ['amount', 'Contribution_date', 'member']
