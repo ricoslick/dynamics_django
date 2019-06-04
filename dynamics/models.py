@@ -23,7 +23,7 @@ class CustomUser(AbstractUser):
 # Create model Contributions which has a many-to-one relationship with model User
 # Foreign key member
 class Contribution(models.Model):
-	member = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	member = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
 	amount = models.DecimalField(max_digits=8, decimal_places=2)
 	Contribution_date = models.DateField()
 

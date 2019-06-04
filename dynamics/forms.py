@@ -29,7 +29,7 @@ class CustomAuthForm(AuthenticationForm):
 	def clean(self):
 		cleaned_data = super(CustomAuthForm, self).clean()
 		return cleaned_data
-
+	# throw error if account not activated(via email)	
 	def confirm_login_allowed(self, user):
 		if not user.is_active:
 			raise forms.ValidationError("Sorry, This account is inactive.", code='inactive')
