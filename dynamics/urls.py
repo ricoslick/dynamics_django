@@ -16,6 +16,8 @@ urlpatterns = [
 	path('register/', views.register, name='register'),
 	# ex: /dynamics/register/thanks
 	path('contribution/thanks/', views.thanks, name='thanks'),
+	# ex: /dynamics/register/downloads
+	path('download/', views.pdfdownload, name='download'),
 	# ex: /dynamics/login
 	path('login/', auth_views.LoginView.as_view(authentication_form=CustomAuthForm), name='login'),
 	# ex: /dynamics/password_reset

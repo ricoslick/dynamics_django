@@ -6,9 +6,12 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login as customlogin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Prefetch 
+from datetime import date
+from io import BytesIO
 
 from .models import CustomUser, Contribution
 from .forms import RegisterationForm, CustomAuthForm, ContributionForm
+from .pdf_utils import PdfPrint
 # Create your views here.
 class IndexView(generic.ListView):
 	template_name = 'dynamics/index.html'
@@ -93,4 +96,39 @@ def contribution(request):
 		form_contrib = ContributionForm()
 
 	return render(request, 'dynamics/dashboard.html', {'form_contrib': form_contrib})
-	
+
+
+# Downloads Pdf View: user downloads a pdf document
+@login_required(login_url='login')
+def pdfdownload(request):
+	contribution_list = Contribution.objects.all().select_related().order_by('-Contribution_date')
+	member = None
+	if request.method == 'POST':
+		form = ContributionForm(request.POST)
+		if form.is_valid():
+			member_id = form.data['member']
+			member = CustomUser.objects.get(pk=member_id)
+			contribution_list = Contribution.objects.filter(member=member_id)
+		if 'pdf' in request.POST:
+			response = HttpResponse(content_type='application/pdf')
+			today = date.today()
+			filename = 'contribution_report' + today.strftime('%Y-%m-%d')
+			response['Content-Disposition'] = 'attachment; filename={0}.pdf'.format(filename)
+			buffer = BytesIO()
+			report = PdfPrint(buffer, 'A4')
+			pdf = report.report(contribution_list, 'Contribution List info')
+			response.write(pdf)
+			return response
+	else:
+		form = ContributionForm()
+
+	template_name = 'dynamics/download.html'
+	context = {
+		'form': form,
+		'member': member,
+		'contribution_list': contribution_list,
+	}
+	return render(request, template_name, context)
+
+
+

@@ -133,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 LOGIN_REDIRECT_URL = '/dynamics/'
 LOGOUT_REDIRECT_URL = '/dynamics/'
 AUTH_USER_MODEL = 'dynamics.CustomUser' # new
