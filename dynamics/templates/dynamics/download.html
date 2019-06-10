@@ -14,6 +14,7 @@
                             
                                 <h2>Downloads</h2>
                                 <p><strong>Dynamics Reports:</strong></p>
+                                <p><strong>Tip: <i>Select a future date to see all contributions made in the report</i></strong>
                                 <form action="" class="col-12" method="post">
                                 	<div class="span2">
 	                                	{% csrf_token %}
@@ -21,8 +22,10 @@
 											{{ form.as_p }}
 										</div>
 									</div>
-									<div class="breadcomb-icon">
-                                        <i class="fa fa-plus-square"></i>
+                                    <div class="breadcomb-wp">
+    									<div class="breadcomb-icon">
+                                            <i class="fa fa-plus-square"></i>
+                                        </div>
                                     </div>
 									<div class="col-md-6">
 										<p><strong><i>Download Now:</i></strong></p><button class="btn btn-default pull-left" name="pdf" type="submit">{% trans "PDF Report" %}</button>
