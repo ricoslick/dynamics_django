@@ -62,7 +62,7 @@ class PdfPrint:
 			Paragraph('Name', styles['TableHeader']),
 			Paragraph('Amount', styles['TableHeader'])]),
 		for pd in pdfdownload:
-			data.append(Spacer(1, 24))
+			# data.append(Spacer(1, 24))
 			# add a row to table
 			table_data.append(
 				[pd.Contribution_date,
