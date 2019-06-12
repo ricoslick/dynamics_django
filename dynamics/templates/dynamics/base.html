@@ -117,7 +117,7 @@
     </div>
     {% if user.is_authenticated %}
     <!-- End Header Top Area -->
-    <!-- Mobile Menu start -->
+    <!-- Main Menu start -->
     <div class="main-menu-area mg-tb-40">
         <div class="container">
             <div class="row">
@@ -125,7 +125,6 @@
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a data-toggle="tab" href="#Home"><i class="fas fa-home"></i>Home</a></li>
                         <li><a data-toggle="tab" href="#About"><i class="fas fa-book-open"></i>About Us</a></li>
-                        <li><a data-toggle="tab" href="#Contacts"><i class="fas fa-user-circle"></i>Contacts</a></li>
                         <li><a data-toggle="tab" href="#Docs"><i class="fas fa-folder"></i>Documents</a></li>
                         <li><a data-toggle="tab" href="#Records"><i class="fas fa-book"></i>Records</a></li>
                         <li><a data-toggle="tab" href="#SignOut"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
@@ -142,7 +141,7 @@
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="about.html">About Us</a></li>
                                 <li><a href="members.html">Members</a></li>
-                                <li><a href="members.html">Officials</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
                         <div id="Docs" class="tab-pane in notika-tab-menu-bg animated flipInX">
@@ -170,6 +169,54 @@
             </div>
         </div>
     </div>
+    <!-- Mobile Menu Start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mobile-menu">
+                        <ul class="mobile-menu-nav">
+                            <li><a data-toggle="collapse" data-target="#demoevent" href="#Home"><i class="fas fa-home"></i>Home</a>
+                                <ul id="demoevent" class="collapse dropdown-header-top">
+                                    <li><a href="{% url 'dynamics:index' %}">Homepage</a></li>
+                                    <li><a href="{% url 'dynamics:register' %}">Sign Up</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                </ul>
+                            </li>
+                            <li><a data-toggle="collapse" data-target="#democrou" href="#About"><i class="fas fa-book-open"></i>About Us</a>
+                                <ul id="democrou" class="collapse dropdown-header-top">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="members.html">Members</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </li>
+                            <li><a data-toggle="collapse" data-target="#demolibra" href="#Docs"><i class="fas fa-folder"></i>Documents</a>
+                                <ul id="demolibra" class="collapse dropdown-header-top">
+                                    <li><a href="{% url 'dynamics:download' %}">Downloads</a></li>
+                                    <li><a href="upload.html">Upload</a></li>
+                                    <li><a href="view.html">View Summaries</a></li>
+                                </ul>
+                            </li>
+                            <li><a data-toggle="collapse" data-target="#demopart" href="#Records"><i class="fas fa-book"></i>Records</a>
+                                <ul id="demopart" class="collapse dropdown-header-top">
+                                    <li><a href="{% url 'dynamics:contribution' %}">Contributions</a></li>
+                                    <li><a href="targets.html">Targets</a></li>
+                                    <li><a href="members.html">Members</a></li>
+                                </ul>
+                            </li>
+                            <li><a data-toggle="collapse" data-target="#demo" href="#SignOut"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
+                                <ul id="demo" class="collapse dropdown-header-top">
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                    <li><a href="{% url 'password_reset' %}">Reset Password</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End mobile menu -->
     {% else %}
     <div class="main-menu-area mg-tb-40">
         <div class="container">
@@ -178,7 +225,6 @@
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a data-toggle="tab" href="#Home"><i class="fas fa-home"></i>Home</a></li>
                         <li><a data-toggle="tab" href="#About"><i class="fas fa-book-open"></i>About Us</a></li>
-                        <li><a data-toggle="tab" href="#Contacts"><i class="fas fa-user-circle"></i>Contacts</a></li>
                         <li><a data-toggle="tab" href="#Docs"><i class="fas fa-folder"></i>Documents</a></li>
                         <li><a data-toggle="tab" href="#Records"><i class="fas fa-book"></i>Records</a></li>
                     </ul>
@@ -194,7 +240,7 @@
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="about.html">About Us</a></li>
                                 <li><a href="members.html">Members</a></li>
-                                <li><a href="members.html">Officials</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
                         <div id="Docs" class="tab-pane in notika-tab-menu-bg animated flipInX">
@@ -216,6 +262,48 @@
             </div>
         </div>
     </div>
+    <!-- Mobile Menu Start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mobile-menu">
+                            <ul class="mobile-menu-nav">
+                                <li><a data-toggle="collapse" data-target="#demoevent" href="#Home"><i class="fas fa-home"></i>Home</a>
+                                    <ul id="demoevent" class="collapse dropdown-header-top">
+                                        <li><a href="{% url 'dynamics:index' %}">Homepage</a></li>
+                                        <li><a href="{% url 'dynamics:register' %}">Sign Up</a></li>
+                                        <li><a href="{% url 'login' %}">Login</a></li>
+                                    </ul>
+                                </li>
+                                <li><a data-toggle="collapse" data-target="#democrou" href="#About"><i class="fas fa-book-open"></i>About Us</a>
+                                    <ul id="democrou" class="collapse dropdown-header-top">
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="members.html">Members</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </li>
+                                <li><a data-toggle="collapse" data-target="#demolibra" href="#Docs"><i class="fas fa-folder"></i>Documents</a>
+                                    <ul id="demolibra" class="collapse dropdown-header-top">
+                                        <li><a href="{% url 'dynamics:download' %}">Downloads</a></li>
+                                        <li><a href="upload.html">Upload</a></li>
+                                        <li><a href="view.html">View Summaries</a></li>
+                                    </ul>
+                                </li>
+                                <li><a data-toggle="collapse" data-target="#demopart" href="#Records"><i class="fas fa-book"></i>Records</a>
+                                    <ul id="demopart" class="collapse dropdown-header-top">
+                                        <li><a href="{% url 'dynamics:contribution' %}">Contributions</a></li>
+                                        <li><a href="targets.html">Targets</a></li>
+                                        <li><a href="members.html">Members</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End mobile menu -->
     {% endif %}
 	
     {% block body %}
@@ -315,6 +403,7 @@
     });
     } );  
     </script>
+    
 </body>
 </html>
 
