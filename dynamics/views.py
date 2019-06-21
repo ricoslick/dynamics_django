@@ -7,7 +7,6 @@ from django.contrib.auth import authenticate, login as customlogin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Prefetch 
 from datetime import date
-from bootstrap_datepicker_plus import DatePickerInput
 from io import BytesIO
 
 from .models import CustomUser, Contribution
