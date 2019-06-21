@@ -5,10 +5,10 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Authenti
 from django.forms.widgets import PasswordInput, TextInput, DateInput
 from datetime import date
 # from bootstrap_datepicker_plus import DatePickerInput
-from tempus_dominus.widgets import DatePicker, TimePicker, DateTimePicker
+
 
 # from django.forms import ModelForm
-from .models import CustomUser, Contribution
+
 # Override AuthenticationForm to customize login
 class CustomAuthForm(AuthenticationForm):
 	# customizing fields done here
