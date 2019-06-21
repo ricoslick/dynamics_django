@@ -44,6 +44,7 @@
 	height: 30px;
 	text-align: center;
 	cursor: pointer;
+  background-image: url('arrow/arrow.png');
 	line-height: 600%;
 	overflow: hidden;
 }

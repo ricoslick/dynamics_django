@@ -74,13 +74,15 @@
     <!-- datepicker styling CSS
         =========================================== -->
     <link rel="stylesheet" href="{% static 'dynamics/css/datepicker.css' %}">
-    <!-- link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" -->
-    <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script -->
-    <!-- modernizr JS
+    
+    <!-- tempus-dominus links(required)
 		============================================ -->
-    <script src="{% static 'dynamics/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
     
-    
+    <!-- Django Tempus Dominus assets are included in `{{ form.media }}` -->
     
 </head>
 
@@ -200,7 +202,7 @@
                                         <li><a href="members.html">Members</a></li>
                                     </ul>
                                 </li>
-                                <li><a data-toggle="collapse" data-target="#demo" href="#SignOut"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
+                                <li><a data-toggle="collapse" data-target="#demo" href="#SignOut"><i class="fas fa-sign-out-alt fa-2x"></i></a>
                                     <ul id="demo" class="collapse dropdown-header-top">
                                         <li><a href="{% url 'logout' %}">Logout</a></li>
                                         <li><a href="{% url 'password_reset' %}">Reset Password</a></li>
@@ -305,6 +307,7 @@
     <!-- End mobile menu -->
     {% endif %}
 	
+
     {% block body %}
     {% endblock %}
     
@@ -326,10 +329,14 @@
     <!-- End Footer area-->
     <!-- jquery
         ============================================ -->
-    <script src="{% static 'dynamics/js/jquery.min.js' %}"></script>
+    <!-- script src="{% static 'dynamics/js/jquery.min.js' %}"></script -->
+    <script async src="{% static 'dynamics/js/jquery-ui/jquery-ui.min.js' %}"></script >
     <!-- bootstrap JS
         ============================================ -->
     <script src="{% static 'dynamics/js/bootstrap.min.js' %}"></script>
+    <!-- Moment JS
+        ============================================ -->
+    <script src="{% static 'dynamics/js/moment.min.js' %}"></script>
     <!-- wow JS
         ============================================ -->
     <script src="{% static 'dynamics/js/wow.min.js' %}"></script>
@@ -388,10 +395,9 @@
         ============================================ -->
     <script src="{% static 'dynamics/js/tawk-chat.js' %}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script async src="{% static 'dynamics/js/jquery-ui/jquery-ui.min.js' %}"></script>
-    <!-- CSSMenu script JS
-        ============================================ -->
     
+    
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -400,12 +406,13 @@
       gtag('config', 'UA-23581568-13');
     </script>
     <script>
-        $( function() {
-            $('#contribution_date').datepicker({
-                inline: true,
+        $(function() {
+            $( "#contribution_date" ).datepicker({
+            inline: true,
             });
-        } );  
+        })(jQuery);
     </script>
+    
 </body>
 </html>
 

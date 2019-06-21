@@ -3,7 +3,10 @@
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
 {% load static %}
+
 {% block body %}
+
+
 <div class="breadcomb-area">
         <div class="container">
             <div class="row">
@@ -86,7 +89,6 @@
                                             <div class="nk-int-st">
                                                 {{ form_contrib.amount.errors }}
                                                 {{ form_contrib.amount }}
-                                                
                                             </div>
                                         </div>   
                                     </div>
@@ -96,23 +98,21 @@
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="form-example-int form-example-st">
                                         <div class="form-group mx-sm-3 mb-2">
-                                            <div class="nk-int-st">
-                                                {{ form_contrib.Contribution_date.errors }}
-                                                {{ form_contrib.Contribution_date }}
-                                                
-                                            </div>
-                                        </div>   
+                                            {{ form_contrib.Contribution_date.errors }}
+                                            {{ form_contrib.Contribution_date }}  
+                                        </div>  
                                     </div>
                                 </div>
                             </div>
+                            &ensp;
+                            &ensp;
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="form-example-int form-example-st">
                                         <div class="form-group mx-sm-3 mb-2">
                                             <div class="nk-int-st">
-                                                {{ form_contrib.member.errors }}
-                                                {{ form_contrib.member }}
-                                                
+                                                    {{ form_contrib.member.errors }}
+                                                    {{ form_contrib.member }}
                                             </div>
                                         </div>   
                                     </div>

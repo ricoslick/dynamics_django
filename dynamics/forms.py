@@ -2,8 +2,10 @@ from django.db import models
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, PasswordResetForm, SetPasswordForm
-from django.forms.widgets import PasswordInput, TextInput
+from django.forms.widgets import PasswordInput, TextInput, DateInput
 from datetime import date
+# from bootstrap_datepicker_plus import DatePickerInput
+from tempus_dominus.widgets import DatePicker, TimePicker, DateTimePicker
 
 # from django.forms import ModelForm
 from .models import CustomUser, Contribution
@@ -111,7 +113,7 @@ class ContributionForm(forms.ModelForm):
 		model = Contribution
 		fields = ['amount', 'Contribution_date', 'member']
 		widgets = {
-			'amount': forms.NumberInput(attrs={'title': 'Enter Amount Given', 'name':'amount', 'placeholder': 'Enter Contribution', 'class': 'form-group'}),
+			'amount': forms.NumberInput(attrs={'title': 'Enter Amount Given', 'name':'amount', 'placeholder': 'Enter Contribution', 'class': 'form-group'}), 
 			'Contribution_date': forms.DateInput(attrs={'title': 'Pick Date of Contribution', 'name': 'contribution_date', 'placeholder': 'Select Date', 'class':'form-group', 'data-provide': 'datepicker', 'id': 'contribution_date'}),
 		}	
 		labels = {

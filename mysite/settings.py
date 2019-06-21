@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tempus_dominus',
 ]
 
 MIDDLEWARE = [
@@ -164,5 +165,8 @@ LOGOUT_REDIRECT_URL = '/dynamics/'
 AUTH_USER_MODEL = 'dynamics.CustomUser' # new
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+
 # configure Django App for Heroku.
 django_heroku.settings(locals())
+
+
