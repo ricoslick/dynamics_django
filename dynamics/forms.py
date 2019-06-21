@@ -6,8 +6,7 @@ from django.forms.widgets import PasswordInput, TextInput, DateInput
 from datetime import date
 # from bootstrap_datepicker_plus import DatePickerInput
 
-
-# from django.forms import ModelForm
+from .models import CustomUser, Contribution
 
 # Override AuthenticationForm to customize login
 class CustomAuthForm(AuthenticationForm):
