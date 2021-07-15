@@ -15,7 +15,7 @@ setup(
 	license='GNU GPLv3',
 	description='A simple django-based application for keeping track of investment group contributions.',
 	long_description=README,
-	url='loclhost:8000/dynamics',
+	url='localhost:8000/dynamics',
 	author='ricoslick',
 	author_email='juma.wasike@protonmail.com',
 	classifiers=[
