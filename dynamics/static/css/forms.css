@@ -1,0 +1,93 @@
+.main-section {
+	margin: 0 auto;
+	margin-top: 130px;
+	padding: 0;
+}
+.modal-content {
+	background-color: #3b4652;
+	opacity: .95;
+	padding: 0 18px;
+	box-shadow: 0px 0px 3px #848484; 
+}
+.user-img {
+	margin-top: -50px;
+	margin-bottom: 35px;
+}
+.user-img img {
+	height: 100px;
+	width:100px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 2px #848484;
+}
+
+.form-group input {
+	height: 42px;
+	border-radius: 5px;
+	border: 0;
+	font-size: 18px;
+}
+
+button {
+	width: 55%;
+	margin: 5px 0 25px;
+}
+
+.btn {
+	background-color: #00c292;
+	color: #fff;
+	font-size: 19px;
+	padding: 7px 14px;
+	border-radius: 5px;
+	border-bottom: 4px solid #219882;
+}
+
+.btn:hover, .btn:focus {
+	background-color: #25a890!important;
+	border-bottom: 4px solid #25a890!important;
+}
+
+.svg-inline--fa {
+	font-size: 20px;
+	margin-right: 7px;
+}
+
+.form-error {
+	color: #fff!important;
+}
+
+.errorlist .nonfield, .errorlist {
+	color: #ed9800!important;
+	font-weight: bold;
+	font-style: italic;
+}
+
+label[for="id_username"] {
+	display:none;
+}
+
+label[for="id_password"] {
+	display:none;
+}
+
+label[for="id_new_password1"] {
+	color: white;
+	font-weight: bold;
+}
+
+label[for="id_new_password2"] {
+	color: white;
+	font-weight: bold;
+}
+
+
+ol li .form-error{
+	color: #ffbf00!important;
+}
+
+.passlink a {
+	color: #fff!important;
+}
+
+.passlink a:hover, a:focus {
+	color: #00c292!important;
+}
