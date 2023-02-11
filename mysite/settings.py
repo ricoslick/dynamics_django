@@ -47,7 +47,7 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.herokuapp.com', 'onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.herokuapp.com', '.onrender.com']
 
 # RENDER_EXTERNAL_HOSTNAME Variable
 RENDER_EXTERNAL_HOSTNAME = 'https://dynamics-django.onrender.com'
