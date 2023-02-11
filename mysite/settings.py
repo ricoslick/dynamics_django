@@ -18,10 +18,10 @@ from decouple import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
-# SECRET_KEY = config('SECRET_KEY', default='')
+SECRET_KEY = config('SECRET_KEY', default='6*&q8(qjdkr)el-4@t7riampzn^-6xfe1)ziksom+e+^pf6!8s')
 
 DEFAULT_FROM_EMAIL = 'bantuefwe@riseup.net'
 EMAIL_HOST = config('EMAIL_HOST', default='localhost')
