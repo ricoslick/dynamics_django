@@ -15,7 +15,7 @@ psycopg2-binary==2.7.7
 pycparser==2.19
 python-dateutil==2.8.2
 python-decouple==3.1
-pytz==2018.9
+pytz==2022.7.1
 pywatchman==1.4.1
 reportlab==3.5.55
 setuptools==39.0.1
