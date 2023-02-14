@@ -34,7 +34,8 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'RENDER' not in os.environ
-DEBUG = False
+DEBUG_PROPAGATE_EXCEPTIONS = True
+# DEBUG = False
 
 # database parameters
 DATABASES = {
@@ -48,7 +49,7 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.herokuapp.com','https://dynamics-django.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.herokuapp.com','.onrender.com' ]
 
 # RENDER_EXTERNAL_HOSTNAME Variable
 # RENDER_EXTERNAL_HOSTNAME = 'https://dynamics-django.onrender.com'
