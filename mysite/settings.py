@@ -34,9 +34,8 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'RENDER' not in os.environ
-DEBUG_PROPAGATE_EXCEPTIONS = True
-# DEBUG = False
-
+# DEBUG_PROPAGATE_EXCEPTIONS = True
+DEBUG = True
 # database parameters
 DATABASES = {
     'default': {
