@@ -20,6 +20,6 @@ pywatchman==1.4.1
 reportlab==3.5.55
 setuptools==67.2.0
 six==1.16.0
-sqlparse==0.2.4
+sqlparse==0.4.4
 whitenoise==6.3.0
 
